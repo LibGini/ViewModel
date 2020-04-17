@@ -2,7 +2,7 @@
 Sharing data between two fragments using view model 
 
 
-public class PageViewModel extends ViewModel {
+     //on inside view model
 
     /**
      * Live Data Instance
@@ -16,12 +16,10 @@ public class PageViewModel extends ViewModel {
     public LiveData<String> getName() {
         return username;
     }
-}
 
-//inside fragment two
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+
+     //inside fragment two onViewCreated
+   
         txtName = view.findViewById(R.id.textViewName);
 
         pageViewModel.getName().observe(requireActivity(), new Observer<String>() {
@@ -33,10 +31,8 @@ public class PageViewModel extends ViewModel {
     }
     }
     
-    //inside fragment one
-      @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    //inside fragment one onViewCreated
+      
         TextInputEditText nameEditText = view.findViewById(R.id.textInputTextName);
            nameEditText.addTextChangedListener(new TextWatcher() {
                @Override
